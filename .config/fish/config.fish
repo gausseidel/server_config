@@ -3,8 +3,9 @@ if status is-interactive
 end
 
 set -g fish_greeting ''
-#bash /root/.config/startup.sh
-#zoxide init fish | source
+
+zoxide init fish | source
+starship init fish | source
 
 if type -q tmux
     if not test -n "$TMUX"

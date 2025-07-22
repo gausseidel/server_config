@@ -26,6 +26,13 @@ else
   echo "Neovim già installato, salto il download."
 fi
 
+if ! command -v starship &> /dev/null; then
+  echo "Starship non trovato, procedo con l'installazione..."
+  curl -sS https://starship.rs/install.sh | sh
+else
+  echo "Starship è già installato, salto l'installazione."
+fi
+
 # Rimuove configurazioni precedenti
 rm -rf /root/.config /root/.tmux.conf
 
