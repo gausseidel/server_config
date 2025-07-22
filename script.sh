@@ -34,9 +34,9 @@ else
 fi
 
 # Rimuove configurazioni precedenti
-rm -rf /root/.config /root/.tmux.conf
+rm -rf /root/.config /root/.tmux.conf /root/.profile
 
 # Aggiorna configurazione da git e applica con stow
 cd /root/server_config/
 git pull
-stow .
+stow . --adopt
