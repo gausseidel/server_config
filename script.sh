@@ -7,7 +7,7 @@ apt update
 apt install -y tmux fish stow
 
 # Verifica se nvim è già presente
-if ! command -v nvim >/dev/null 2>&1; then
+if [ ! -x /usr/bin/local/nvim ]; then
   echo "Neovim non trovato, procedo con l'installazione..."
 
   # Scarica neovim
