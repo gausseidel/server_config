@@ -7,7 +7,7 @@ apt update
 apt install -y tmux fish stow
 
 # Verifica se nvim è già presente
-if [ ! -x /usr/bin/local/nvim ]; then
+if [ ! -x /usr/local/bin/nvim ]; then
   echo "Neovim non trovato, procedo con l'installazione..."
 
   # Scarica neovim
@@ -26,7 +26,7 @@ else
   echo "Neovim già installato, salto il download."
 fi
 
-if ! command -v starship &> /dev/null; then
+if [ ! -x /usr/local/bin/starship ]; then
   echo "Starship non trovato, procedo con l'installazione..."
   yes | curl -sS https://starship.rs/install.sh | sh
 else
