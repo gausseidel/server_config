@@ -24,10 +24,15 @@ nix-channel --update
 
 echo "📁 Collegamento della configurazione in ~/.config/home-manager..."
 REPO_DIR="/root/server_config"
-rm -rf $HOME/.config
-mkdir -p $HOME/.config
-ln -s "$REPO_DIR/home-manager" "$HOME/.config/"
-
+TARGET="$HOME/.config/home-manager"
+# Crea la directory .config se non esiste
+mkdir -p "$HOME/.config"
+# Rimuove solo il link o directory esistente home-manager (non tutta .config!)
+if [ -L "$TARGET" ] || [ -d "$TARGET" ]; then
+  rm -rf "$TARGET"
+fi
+# Crea il symlink
+ln -s "$REPO_DIR/home-manager" "$TARGET"
 echo "📥 Installazione di home-manager (se necessario)..."
 if ! command -v home-manager &>/dev/null; then
   nix-env -iA home-manager -f '<home-manager>'
