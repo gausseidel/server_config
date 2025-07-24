@@ -15,7 +15,7 @@
     neovim
   ];
 
-  imports = [ ./fish.nix ];
+  imports = [ ./fish.nix ./tmux.nix ];
 
   home.file.".profile".text = ''
     if [[ -z "$TMUX" && -n "$SSH_TTY" ]]; then
