@@ -30,7 +30,7 @@
       s = "systemctl";
       st = "systemctl status";
       sr = "systemctl restart";
-      update = "cd /root/server_config; git pull; home-manager switch";
+      update = "cd $HOME/server_config; git pull; home-manager switch";
     };
   };
 }
