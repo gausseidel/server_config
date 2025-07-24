@@ -22,7 +22,7 @@ nix-shell -p nix-info --run "nix-info -m"
 echo "📁 Collegamento della configurazione in ~/.config/home-manager..."
 mkdir -p ~/.config/home-manager
 
-REPO_DIR="$(realpath "$(dirname "$0")")"
+REPO_DIR="/root/server_config"
 HM_DIR="$REPO_DIR/home-manager"
 
 for file in home.nix fish.nix tmux.nix; do
