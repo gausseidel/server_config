@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
-export PATH=$PATH:/root/.nix-profile/bin:/nix/var/nix/profiles/default/bin
 
 echo "🔧 Verifica installazione di Nix..."
 if ! command -v nix &>/dev/null; then
@@ -25,9 +24,8 @@ nix-channel --update
 echo "📁 Collegamento della configurazione in ~/.config/home-manager..."
 REPO_DIR="/root/server_config"
 TARGET="$HOME/.config/home-manager"
-# Crea la directory .config se non esiste
 mkdir -p "$HOME/.config"
-# Rimuove solo il link o directory esistente home-manager (non tutta .config!)
+# Rimuove solo il link o directory esistente home-manager 
 if [ -L "$TARGET" ] || [ -d "$TARGET" ]; then
   rm -rf "$TARGET"
 fi
