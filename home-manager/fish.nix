@@ -8,9 +8,6 @@
       set fish_greeting
       set -g theme_color_scheme dark
       starship init fish | source
-    '';
-
-    init = ''
       function user
           set home_users (ls /home)
           if count $home_users > 1
@@ -21,7 +18,8 @@
           su - $target_user
       end
     '';
-    
+
+ 
     shellAliases = {
       ls = "lsd -l --color=auto";
       log = "journalctl -xe";
