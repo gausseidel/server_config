@@ -2,7 +2,7 @@
 set -euo pipefail
 
 echo "🔧 Verifica installazione di Nix..."
-if ! command -v nix &>/dev/null; then
+if ! -x $HOME/.nix-profile/bin/nix &>/dev/null; then
   echo "📥 Installo Nix..."
   printf 'n\ny\n' | sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
   source /etc/profile.d/nix.sh
@@ -17,7 +17,9 @@ fi
 
 echo "🔄 Aggiornamento dei canali..."
 nix-channel --update
-nix-shell -p nix-info --run "nix-info -m"
+
+# Per info e debug
+#nix-shell -p nix-info --run "nix-info -m"
 
 echo "📁 Collegamento della configurazione in ~/.config/home-manager..."
 REPO_DIR="/root/server_config"
@@ -26,7 +28,7 @@ mkdir -p $HOME/.config
 ln -s "$REPO_DIR/home-manager" "$HOME/.config/"
 
 echo "📥 Installazione di home-manager (se necessario)..."
-if ! command -v home-manager &>/dev/null; then
+if ! -x $HOME/.nix-profile/home-manager &>/dev/null; then
   nix-env -iA home-manager -f '<home-manager>'
 fi
 
