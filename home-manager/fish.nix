@@ -11,9 +11,10 @@
     '';
 
     shellAliases = {
-      ls = "ls --color=auto";
+      ls = "lsd -l --color=auto";
+      log = "journalctl -xe"
       v = "nvim";
-      nv = "nvim";
+      nano = "nvim";
       cat = "bat";
       grep = "grep --color=auto";
     };

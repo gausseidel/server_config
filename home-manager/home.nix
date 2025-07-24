@@ -13,6 +13,8 @@
     fish
     tmux
     neovim
+    bat
+    lsd
   ];
 
   imports = [ ./fish.nix ./tmux.nix ];
