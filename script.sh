@@ -22,6 +22,7 @@ nix-shell -p nix-info --run "nix-info -m"
 echo "📁 Collegamento della configurazione in ~/.config/home-manager..."
 REPO_DIR="/root/server_config"
 rm -rf $HOME/.config
+mkdir -p $HOME/.config
 ln -s "$REPO_DIR/home-manager" "$HOME/.config/"
 
 echo "📥 Installazione di home-manager (se necessario)..."
