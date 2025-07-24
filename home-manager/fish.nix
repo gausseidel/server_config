@@ -17,6 +17,9 @@
       nano = "nvim";
       cat = "bat";
       grep = "grep --color=auto";
+      s = "systemctl";
+      st = "systemctl status";
+      sr = "systemctl restart";
     };
   };
 }
