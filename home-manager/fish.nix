@@ -21,20 +21,19 @@
               return 1
           end
       end
+
+      
+      abbr -a ls "lsd -l --color=auto"
+      abbr -a log "journalctl -xe"
+      abbr -a v "nvim"
+      abbr -a nano "nvim"
+      abbr -a cat "bat"
+      abbr -a grep "grep --color=auto"
+      abbr -a s "systemctl"
+      abbr -a st "systemctl status"
+      abbr -a sr "systemctl restart"
+      abbr -a update "cd $HOME/server_config; git pull; home-manager switch"
     '';
 
- 
-    abbreviations = {
-      ls = "lsd -l --color=auto";
-      log = "journalctl -xe";
-      v = "nvim";
-      nano = "nvim";
-      cat = "bat";
-      grep = "grep --color=auto";
-      s = "systemctl";
-      st = "systemctl status";
-      sr = "systemctl restart";
-      update = "cd $HOME/server_config; git pull; home-manager switch";
-    };
   };
 }
