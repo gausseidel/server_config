@@ -11,7 +11,7 @@
 
       function user
           # Trova il primo utente con shell bash, sh, fish o zsh, escludendo root
-          set utente (awk -F: '$7 ~ /(bash|sh|fish|zsh)$/ && $1 != "root" {print $1; exit}' /etc/passwd)
+          set utente (getent passwd | awk -F: '$7 ~ /(bash|sh|fish|zsh)$/ && $1 != "root" { print $1; exit }')
 
           if test -n "$utente"
               echo "Eseguo su - $utente"
