@@ -26,7 +26,7 @@ REPO_DIR="/root/server_config"
 HM_DIR="$REPO_DIR/home-manager"
 
 
-cp "$HM_DIR" "$HOME/.config/"
+cp -R "$HM_DIR" "$HOME/.config/"
 
 
 echo "📥 Installazione di home-manager (se necessario)..."
