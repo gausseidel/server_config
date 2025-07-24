@@ -22,7 +22,6 @@ in
   # environment.
   home.packages = 
 with pkgs; [
-    neovim
     wget
     curl
     htop
