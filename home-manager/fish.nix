@@ -24,7 +24,7 @@
     '';
 
  
-    shellAliases = {
+    abbreviations = {
       ls = "lsd -l --color=auto";
       log = "journalctl -xe";
       v = "nvim";
