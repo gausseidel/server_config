@@ -35,5 +35,6 @@ done
 
 echo "🏠 Applico la configurazione Home Manager..."
 home-manager switch
+nix-shell -p nix-info --run "nix-info -m"
 
 echo "🎉 Configurazione completata!"
