@@ -48,7 +48,6 @@ with pkgs; [
   ];
   imports = [
     ./fish.nix
-    ${home-manager}/nixos
   ];
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
