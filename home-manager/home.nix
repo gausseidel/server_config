@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/master.tar.gz;
-in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
