@@ -22,7 +22,7 @@ nix-channel --update
 #nix-shell -p nix-info --run "nix-info -m"
 
 echo "📁 Collegamento della configurazione in ~/.config/home-manager..."
-REPO_DIR="/root/server_config"
+REPO_DIR="$HOME/server_config"
 TARGET="$HOME/.config/home-manager"
 mkdir -p "$HOME/.config"
 # Rimuove solo il link o directory esistente home-manager 
