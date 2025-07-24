@@ -29,6 +29,11 @@ for file in home.nix fish.nix tmux.nix; do
   ln -sf "$HM_DIR/$file" "$HOME/.config/home-manager/$file"
 done
 
+echo "📥 Installazione di home-manager (se necessario)..."
+if ! command -v home-manager &>/dev/null; then
+  nix-env -iA home-manager -f '<home-manager>'
+fi
+
 echo "🏠 Applico la configurazione Home Manager..."
 home-manager switch
 nix-shell -p nix-info --run "nix-info -m"
