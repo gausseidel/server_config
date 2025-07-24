@@ -13,10 +13,7 @@ in
     wget
     curl
     htop
-    starship
-    fish
     tmux
-    neovim
     bat
     lsd
   ];
@@ -33,10 +30,10 @@ in
   home.file.".config/starship.toml".source = ./starship.toml;
 
   home.file.".config/nvim".source = ./nvim;
-  #programs.neovim.enable = true;
+  programs.neovim.enable = true;
 
-#  programs.starship.enable = true;
-#  programs.fish.enable = true;
+  programs.starship.enable = true;
+  programs.fish.enable = true;
 
   home.sessionVariables = {
     EDITOR = "nvim";
