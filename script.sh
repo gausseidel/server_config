@@ -4,7 +4,7 @@ set -euo pipefail
 echo "🔧 Verifica installazione di Nix..."
 if ! command -v nix &>/dev/null; then
   echo "📥 Installo Nix..."
-  sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+  printf 'n\ny\n' | sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
   source /etc/profile.d/nix.sh
 else
   echo "✅ Nix già installato."
