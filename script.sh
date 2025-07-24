@@ -25,9 +25,9 @@ mkdir -p ~/.config/home-manager
 REPO_DIR="/root/server_config"
 HM_DIR="$REPO_DIR/home-manager"
 
-for file in home.nix fish.nix tmux.nix; do
-  ln -sf "$HM_DIR/$file" "$HOME/.config/home-manager/$file"
-done
+
+cp "$HM_DIR" "$HOME/.config/"
+
 
 echo "📥 Installazione di home-manager (se necessario)..."
 if ! command -v home-manager &>/dev/null; then
