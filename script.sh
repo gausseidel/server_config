@@ -18,10 +18,6 @@ fi
 echo "🔄 Aggiornamento dei canali..."
 nix-channel --update
 
-echo "📥 Installazione di home-manager nel profilo utente..."
-if ! command -v home-manager &>/dev/null; then
-  nix-env -iA home-manager -f '<home-manager>'
-fi
 
 echo "📁 Collegamento della configurazione in ~/.config/home-manager..."
 mkdir -p ~/.config/home-manager
