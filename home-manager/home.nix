@@ -12,7 +12,7 @@
     starship
     fish
     tmux
-    nvim
+    neovim
   ];
 
   imports = [ ./fish.nix ];
