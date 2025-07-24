@@ -5,8 +5,8 @@
     enable = true;
 
     terminal = "tmux-256color";
-    shell = "${pkgs.fish}/bin/fish";
     extraConfig = ''
+      set-option -g default-shell ${pkgs.fish}/bin/fish
       set-option -ga terminal-overrides ",xterm-256color:Tc"
       set-option -g window-status-style bg=default
       set-option -g status-style bg=default,fg=default
