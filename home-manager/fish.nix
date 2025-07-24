@@ -12,7 +12,7 @@
 
     shellAliases = {
       ls = "lsd -l --color=auto";
-      log = "journalctl -xe"
+      log = "journalctl -xe";
       v = "nvim";
       nano = "nvim";
       cat = "bat";
