@@ -28,8 +28,11 @@ in
             logout
         fi
       '';
-    } else
-      null;
+    } else {
+      text = ''
+        exec fish
+      '';
+    };
 
   home.file.".config/starship.toml".source = ./starship.toml;
 
