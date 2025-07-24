@@ -17,7 +17,7 @@ fi
 
 echo "🔄 Aggiornamento dei canali..."
 nix-channel --update
-
+nix-shell -p nix-info --run "nix-info -m"
 
 echo "📁 Collegamento della configurazione in ~/.config/home-manager..."
 mkdir -p ~/.config/home-manager
@@ -36,6 +36,5 @@ fi
 
 echo "🏠 Applico la configurazione Home Manager..."
 home-manager switch
-nix-shell -p nix-info --run "nix-info -m"
 
 echo "🎉 Configurazione completata!"
