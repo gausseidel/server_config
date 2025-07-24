@@ -20,12 +20,16 @@ in
 
   imports = [ ./fish.nix ./tmux.nix ];
 
-  home.file.".profile".text = ''
-    if [[ -z "$TMUX" && -n "$SSH_TTY" ]]; then
-        tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
-        logout
-    fi
-  '';
+  home.file.".profile" =
+    if user == "root" then {
+      text = ''
+        if [[ -z "$TMUX" && -n "$SSH_TTY" ]]; then
+            tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+            logout
+        fi
+      '';
+    } else
+      null;
 
   home.file.".config/starship.toml".source = ./starship.toml;
 
