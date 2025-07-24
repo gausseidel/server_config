@@ -11,10 +11,14 @@
       set-option -g status-style bg=default,fg=default
       set-option -g window-status-current-style bg=default
       set -g mouse on
+
       bind -n C-h select-pane -L
       bind -n C-j select-pane -D
       bind -n C-k select-pane -U
       bind -n C-l select-pane -R
+
+      # Mostra il nome host (server) nella status bar a sinistra
+      set -g status-left "#[fg=green,bold]#H #[default]"
     '';
   };
 }

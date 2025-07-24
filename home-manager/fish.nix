@@ -8,14 +8,18 @@
       set fish_greeting
       set -g theme_color_scheme dark
       starship init fish | source
+
       function user
-          set home_users (ls /home)
-          if count $home_users > 1
-              echo "Errore: ci sono più utenti sotto /home. Non so quale usare."
+          # Trova il primo utente con shell bash, sh, fish o zsh, escludendo root
+          set utente (awk -F: '$7 ~ /(bash|sh|fish|zsh)$/ && $1 != "root" {print $1; exit}' /etc/passwd)
+
+          if test -n "$utente"
+              echo "Eseguo su - $utente"
+              su - $utente
+          else
+              echo "Nessun utente trovato con shell bash, sh, fish o zsh diverso da root."
               return 1
           end
-          set target_user $home_users[1]
-          su - $target_user
       end
     '';
 
