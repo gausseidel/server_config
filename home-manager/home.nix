@@ -71,10 +71,10 @@ with pkgs; [
     fi
   '';
 
-  home.file."dotfiles/starship.toml".source = ./starship.toml;
+  home.file."starship.toml".source = ./starship.toml;
   programs.starship.enable = true;
 
-  home.file."dotfiles/nvim".source = ./config/nvim;
+  home.file."nvim".source = ./config/nvim;
     programs.neovim.enable = true;
 
 
