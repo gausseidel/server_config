@@ -10,7 +10,7 @@
       starship init fish | source
     '';
 
-    initExtra = ''
+    init = ''
       function user
           set home_users (ls /home)
           if count $home_users > 1
