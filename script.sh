@@ -12,7 +12,7 @@ fi
 
 echo "📦 Aggiunta del canale home-manager (se necessario)..."
 if ! nix-channel --list | grep -q '^home-manager'; then
-  nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gzhome-manager
+  nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz home-manager
 fi
 
 echo "🔄 Aggiornamento dei canali..."
