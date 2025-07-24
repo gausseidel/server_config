@@ -73,7 +73,7 @@ with pkgs; [
   home.file."starship.toml".source = ./starship.toml;
   programs.starship.enable = true;
 
-  home.file."nvim".source = ./config/nvim;
+  home.file."../nvim".source = ./config/nvim;
     programs.neovim.enable = true;
 
 
