@@ -21,23 +21,28 @@ in
 
   imports = [ ./fish.nix ./tmux.nix ];
 
+
   home.file.".profile" =
     if user == "root" then {
       text = ''
         if [[ -z "$TMUX" && -n "$SSH_TTY" ]]; then
             tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
-            logout
         fi
       '';
     } else {
       text = ''
-        if [[ -z "$TMUX" && -t 0 ]]; then
-          tmux attach-session -t user_tmux || tmux new-session -s user_tmux
-          logout
+        if [[ -n "$TMUX" ]]; then
+            tmux detach-client
         fi
+
+        if [[ -z "$TMUX" && -t 0 ]]; then
+            tmux attach-session -t user_tmux || tmux new-session -s user_tmux
+        fi
+
         exec fish
       '';
     };
+
 
   home.file.".config/starship.toml".source = ./starship.toml;
 
