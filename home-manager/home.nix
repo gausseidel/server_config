@@ -13,6 +13,7 @@ in
     wget
     curl
     ripgrep
+    gcc
     htop
     tmux
     bat
