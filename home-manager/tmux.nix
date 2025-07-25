@@ -7,6 +7,7 @@
     terminal = "tmux-256color";
     extraConfig = ''
       set-option -ga terminal-overrides ",xterm-256color:Tc"
+      set -s set-clipboard on
       set-option -g window-status-style bg=default
       set-option -g status-style bg=default,fg=default
       set-option -g window-status-current-style bg=default
