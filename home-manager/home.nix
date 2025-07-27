@@ -38,7 +38,6 @@ in
 
         if [[ -z "$TMUX" && -t 0 ]]; then
             tmux attach-session -t user_tmux || tmux new-session -s user_tmux
-            logout
         fi
       '';
     };
