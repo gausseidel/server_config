@@ -23,8 +23,9 @@ in
   imports = [ ./fish.nix ./tmux.nix ];
 
 
-  home.file.".profile" =
-# Se siamo root (login SSH)
+home.file.".profile" = {
+  text = ''
+    # Se siamo root (login SSH)
     if [ "$(id -u)" -eq 0 ]; then
       # Se non siamo già dentro tmux e siamo su terminale SSH
       if [ -z "$TMUX" ] && [ -n "$SSH_TTY" ]; then
@@ -32,15 +33,15 @@ in
         tmux attach-session -t ssh_tmux 2>/dev/null || tmux new-session -s ssh_tmux
       fi
 
-# Se siamo un utente normale (da su - user)
+    # Se siamo un utente normale (da su - user)
     else
       # Se non siamo già dentro tmux e la shell è interattiva
       if [ -z "$TMUX" ] && [ -t 0 ]; then
         tmux attach-session -t user_tmux 2>/dev/null || tmux new-session -s user_tmux
       fi
     fi
-      '';
-    };
+  '';
+};
 
 
   home.file.".config/starship.toml".source = ./starship.toml;
