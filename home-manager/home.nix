@@ -28,12 +28,14 @@ in
       text = ''
         if [ -z "$TMUX" ] && [ -n "$SSH_TTY" ]; then
           tmux attach-session -t ssh_tmux 2>/dev/null || tmux new-session -s ssh_tmux
+          logout
         fi
       '';
     } else {
       text = ''
         if [ -z "$TMUX" ] && [ -t 0 ]; then
           tmux attach-session -t user_tmux 2>/dev/null || tmux new-session -s user_tmux
+          exit
         fi
       '';
     };
