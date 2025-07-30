@@ -13,6 +13,8 @@ in
     wget
     curl
     ripgrep
+    fonts-font-awesome 
+    fonts-powerline
     gcc
     htop
     tmux
