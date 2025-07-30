@@ -1,23 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+REPO_DIR="/root/server_config"
+CONFIG_DIR="/root/.config"
 
-echo "📁 Collegamento della configurazione in ~/.config/home-manager..."
-REPO_DIR="$HOME/server_config"
-TARGET="$HOME/.config/home-manager"
-mkdir -p "$HOME/.config"
-# Rimuove solo il link o directory esistente home-manager 
-if [ -L "$TARGET" ] || [ -d "$TARGET" ]; then
-  rm -rf "$TARGET"
-fi
-# Crea il symlink
-ln -s "$REPO_DIR/home-manager" "$TARGET"
-echo "📥 Installazione di home-manager (se necessario)..."
-if ! command -v home-manager &>/dev/null; then
-  nix-env -iA home-manager -f '<home-manager>'
-fi
+apt install neovim fish zoxide tmux stow htop curl
+mkdir -p $CONFIG_DIR
+stow --dir=$REPO_DIR --target=$CONFIG_DIR --adopt
 
-echo "🏠 Applico la configurazione Home Manager..."
-home-manager switch
-
-echo "🎉 Configurazione completata!"
