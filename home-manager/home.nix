@@ -5,6 +5,10 @@ let
   homeDir = builtins.getEnv "HOME";
 in
 {
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+  ];
+
   home.username = user;
   home.homeDirectory = homeDir;
   home.stateVersion = "25.05";
@@ -13,8 +17,6 @@ in
     wget
     curl
     ripgrep
-    fonts-font-awesome 
-    fonts-powerline
     gcc
     htop
     tmux
