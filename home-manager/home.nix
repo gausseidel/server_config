@@ -10,10 +10,6 @@ in
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    nerd-fonts.fira-code
-    nerd-fonts.jetbrains-mono
-    font-awesome
-    powerline-fonts
     wget
     curl
     ripgrep
