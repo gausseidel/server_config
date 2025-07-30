@@ -5,15 +5,14 @@ let
   homeDir = builtins.getEnv "HOME";
 in
 {
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-  ];
-
   home.username = user;
   home.homeDirectory = homeDir;
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    font-awesome
+    powerline-fonts
     wget
     curl
     ripgrep
