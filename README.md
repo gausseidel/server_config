@@ -1,4 +1,4 @@
-# Nix basic server environment
+# Shell basic server environment
 
 - Tmux
 - nvim
