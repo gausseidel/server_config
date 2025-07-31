@@ -9,7 +9,8 @@ apt install fish zoxide tmux stow htop curl lsd net-tools gcc
 
 # Link dotfiles
 mkdir -p $CONFIG_DIR
-stow --dir=$REPO_DIR/dotfiles --target=$CONFIG_DIR * --adopt
+cd $REPO_DIR/dotfiles
+stow . --target=$CONFIG_DIR --adopt
 ln -s $CONFIG_DIR/.profile $HOME
 
 # Starship
