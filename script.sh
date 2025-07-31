@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -uo pipefail
 
 REPO_DIR="/root/server_config"
 CONFIG_DIR="/root/.config"
