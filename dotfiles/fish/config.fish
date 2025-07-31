@@ -21,7 +21,6 @@ abbr -a la 'lsd -la --group-directories-first'
 abbr -a log "journalctl -xe"
 abbr -a v "nvim"
 abbr -a nano "nvim"
-abbr -a cat "bat"
 abbr -a grep "grep --color=auto"
 abbr -a s "systemctl"
 abbr -a st "systemctl status"
