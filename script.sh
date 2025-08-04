@@ -5,7 +5,7 @@ REPO_DIR="/root/server_config"
 CONFIG_DIR="/root/.config"
 
 # Install packages
-apt install fish zoxide tmux stow htop curl lsd net-tools gcc
+apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc
 
 # Link dotfiles
 mkdir -p $CONFIG_DIR
