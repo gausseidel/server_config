@@ -5,7 +5,7 @@ REPO_DIR="/root/server_config"
 CONFIG_DIR="/root/.config"
 
 # Install packages
-apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc unzip
+apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc 
 
 # Update Locale
 echo "[*] Decommento it_IT.UTF-8 e en_US.UTF-8 in /etc/locale.gen..."
