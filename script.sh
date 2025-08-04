@@ -5,7 +5,7 @@ REPO_DIR="/root/server_config"
 CONFIG_DIR="/root/.config"
 
 # Install packages
-apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc
+apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc unzip
 
 # Link dotfiles
 mkdir -p $CONFIG_DIR
@@ -31,3 +31,5 @@ if [ ! -x /usr/local/bin/nvim ]; then
 else
     echo "Neovim è già installato in /usr/local/bin/nvim"
 fi
+
+./fonts.sh

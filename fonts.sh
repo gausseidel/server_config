@@ -1,27 +1,25 @@
 #!/bin/bash
 
-declare -a fonts=(
-	FiraCode
-	Hack
-	JetBrainsMono
-)
+set -e
 
-version='2.1.0'
-fonts_dir="${HOME}/.local/share/fonts"
+FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip"
+FONT_DIR="$HOME/.local/share/fonts/HackNerdFont"
+TMP_ZIP="/tmp/Hack.zip"
 
-if [[ ! -d "$fonts_dir" ]]; then
-	mkdir -p "$fonts_dir"
-fi
+echo "Scarico il font Nerd Font Hack..."
+curl -L -o "$TMP_ZIP" "$FONT_URL"
 
-for font in "${fonts[@]}"; do
-	zip_file="${font}.zip"
-	download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
-	echo "Downloading $download_url"
-	wget "$download_url"
-	unzip "$zip_file" -d "$fonts_dir"
-	rm "$zip_file"
-done
+echo "Creo la cartella font locale se non esiste..."
+mkdir -p "$FONT_DIR"
 
-find "$fonts_dir" -name '*Windows Compatible*' -delete
+echo "Estraggo i font..."
+unzip -o "$TMP_ZIP" -d "$FONT_DIR"
 
-fc-cache -fv
+echo "Aggiorno la cache dei font..."
+fc-cache -fv "$FONT_DIR"
+
+echo "Pulisco..."
+rm "$TMP_ZIP"
+
+echo "Installazione completata! Ora puoi impostare il font Nerd Font Hack nel terminale."
+
