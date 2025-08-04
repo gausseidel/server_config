@@ -19,8 +19,8 @@ end
 abbr -a ls 'lsd -l --group-directories-first'
 abbr -a la 'lsd -la --group-directories-first'
 abbr -a log "journalctl -xe"
-abbr -a v "nvim"
-abbr -a nano "nvim"
+abbr -a v "/usr/local/bin/squashfs-root/AppRun"
+abbr -a nano "/usr/local/bin/squashfs-root/AppRun"
 abbr -a grep "grep --color=auto"
 abbr -a s "systemctl"
 abbr -a st "systemctl status"
