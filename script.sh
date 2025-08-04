@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
-REPO_DIR="/root/server_config"
-CONFIG_DIR="/root/.config"
+REPO_DIR="$HOME/server_config"
+CONFIG_DIR="$HOME/.config"
 
 # Install packages
 apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc 
