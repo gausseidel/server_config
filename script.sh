@@ -16,7 +16,11 @@ rm $HOME/.profile
 ln -s $CONFIG_DIR/.profile $HOME
 
 # Starship
-#curl -sS https://starship.rs/install.sh | sh
+if ! command -v starship >/dev/null 2>&1; then
+  curl -sS https://starship.rs/install.sh | sh
+else
+  echo "✅ Starship è già installato"
+fi
 
 if [ ! -x /usr/local/bin/nvim ]; then
     echo "Neovim non trovato. Procedo con l'installazione..."
