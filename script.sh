@@ -32,4 +32,4 @@ else
     echo "Neovim è già installato in /usr/local/bin/nvim"
 fi
 
-./fonts.sh
+./$REPO_DIR/fonts.sh
