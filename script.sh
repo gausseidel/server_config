@@ -35,5 +35,3 @@ if [ ! -x /usr/local/bin/nvim ]; then
 else
     echo "Neovim è già installato in /usr/local/bin/nvim"
 fi
-
-$REPO_DIR/fonts.sh
