@@ -8,9 +8,14 @@ CONFIG_DIR="/root/.config"
 apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc unzip
 
 # Update Locale
-locale-gen en_US.UTF-8
-echo "LANG=en_US.UTF-8" > /etc/default/locale
-update-locale
+echo "[*] Decommento it_IT.UTF-8 e en_US.UTF-8 in /etc/locale.gen..."
+sed -i '/^# *it_IT.UTF-8 UTF-8/s/^# *//' /etc/locale.gen
+sed -i '/^# *en_US.UTF-8 UTF-8/s/^# *//' /etc/locale.gen
+echo "[*] Genero i locale..."
+locale-gen
+echo "[*] Imposto LANG e LC_ALL su it_IT.UTF-8..."
+update-locale LANG=it_IT.UTF-8 LC_ALL=it_IT.UTF-8
+echo "[✓] Localizzazione completata. Riavvia il terminale o fai logout/login."
 
 # Link dotfiles
 mkdir -p $CONFIG_DIR
