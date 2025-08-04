@@ -10,7 +10,7 @@ apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc unzip
 # Update Locale
 echo "[*] Decommento it_IT.UTF-8 e en_US.UTF-8 in /etc/locale.gen..."
 sed -i '/^# *it_IT.UTF-8 UTF-8/s/^# *//' /etc/locale.gen
-sed -i '/^# *en_US.UTF-8 UTF-8/s/^# *//' /etc/locale.gen
+#sed -i '/^# *en_US.UTF-8 UTF-8/s/^# *//' /etc/locale.gen
 echo "[*] Genero i locale..."
 locale-gen
 echo "[*] Imposto LANG e LC_ALL su it_IT.UTF-8..."
