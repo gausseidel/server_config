@@ -7,6 +7,10 @@ CONFIG_DIR="/root/.config"
 # Install packages
 apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc unzip
 
+# Update Locale
+locale-gen it_IT.UTF-8
+update-locale
+
 # Link dotfiles
 mkdir -p $CONFIG_DIR
 cd $REPO_DIR/dotfiles
