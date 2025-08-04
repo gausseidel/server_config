@@ -16,12 +16,12 @@ function user
 end
 
 
-abbr -a ls 'lsd -l --group-directories-first'
-abbr -a la 'lsd -la --group-directories-first'
+alias ls 'lsd -l --group-directories-first'
+alias la 'lsd -la --group-directories-first'
 abbr -a log "journalctl -xe"
 abbr -a v "/usr/local/bin/squashfs-root/AppRun"
 abbr -a nano "/usr/local/bin/squashfs-root/AppRun"
-abbr -a grep "grep --color=auto"
+alias grep "grep --color=auto"
 abbr -a s "systemctl"
 abbr -a st "systemctl status"
 abbr -a sr "systemctl restart"

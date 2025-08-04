@@ -37,6 +37,8 @@ if [ ! -x /usr/local/bin/nvim ]; then
     wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
     chmod +x nvim-linux-x86_64.appimage
     mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
+    cd /usr/local/bin/
+    ./nvim  --appimage-extract
     echo "Neovim installato in /usr/local/bin/nvim"
 else
     echo "Neovim è già installato in /usr/local/bin/nvim"
