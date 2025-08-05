@@ -7,15 +7,18 @@ CONFIG_DIR="$HOME/.config"
 # Install packages
 apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc 
 
-# Update Locale
-echo "[*] Decommento it_IT.UTF-8 e en_US.UTF-8 in /etc/locale.gen..."
-sed -i '/^# *it_IT.UTF-8 UTF-8/s/^# *//' /etc/locale.gen
-#sed -i '/^# *en_US.UTF-8 UTF-8/s/^# *//' /etc/locale.gen
-echo "[*] Genero i locale..."
-locale-gen
-echo "[*] Imposto LANG e LC_ALL su it_IT.UTF-8..."
-update-locale LANG=it_IT.UTF-8 LC_ALL=it_IT.UTF-8
-echo "[✓] Localizzazione completata. Riavvia il terminale o fai logout/login."
+# Update Locale - solo se necessario
+if ! locale -a | grep -q "it_IT.utf8\|it_IT.UTF-8"; then
+    echo "[*] Decommento it_IT.UTF-8 in /etc/locale.gen..."
+    sed -i '/^# *it_IT.UTF-8 UTF-8/s/^# *//' /etc/locale.gen
+    echo "[*] Genero i locale..."
+    locale-gen
+    echo "[*] Imposto LANG e LC_ALL su it_IT.UTF-8..."
+    update-locale LANG=it_IT.UTF-8 LC_ALL=it_IT.UTF-8
+    echo "[✓] Localizzazione completata. Riavvia il terminale o fai logout/login."
+else
+    echo "[✓] Locale it_IT.UTF-8 già configurato."
+fi
 
 # Link dotfiles
 mkdir -p $CONFIG_DIR
