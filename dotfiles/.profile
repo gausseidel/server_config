@@ -1,4 +1,6 @@
-if [ -z "$TMUX" ] && [ -n "$SSH_TTY" ]; then
-  tmux attach-session -t ssh_tmux 2>/dev/null || tmux new-session -s ssh_tmux
-  logout
+# .profile condiviso
+if [ -n "$SSH_CONNECTION" ] && [ -z "$TMUX" ]; then
+    SESSION_NAME="ssh_tmux_$(whoami)"
+    tmux attach-session -t "$SESSION_NAME" 2>/dev/null || tmux new-session -s "$SESSION_NAME"
+    logout
 fi
