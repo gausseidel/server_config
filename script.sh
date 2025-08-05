@@ -27,6 +27,7 @@ stow . --target=$CONFIG_DIR --adopt
 
 rm $HOME/.profile
 ln -s $CONFIG_DIR/.profile $HOME
+ln -s $CONFIG_DIR/.bash_profile $HOME
 
 # Starship
 if ! command -v starship >/dev/null 2>&1; then
