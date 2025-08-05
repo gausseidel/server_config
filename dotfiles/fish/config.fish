@@ -9,7 +9,6 @@ function user
     if test -n "$utente"
         echo "Eseguo su - $utente"
         su - $utente
-        logout
     else
         echo "Nessun utente trovato con shell bash, sh, fish o zsh diverso da root."
         return 1
