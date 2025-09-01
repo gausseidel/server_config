@@ -27,3 +27,18 @@ abbr -a sr "systemctl restart"
 abbr -a update "cd $HOME/server_config; git pull; stow . --adopt --target=$HOME/.config"
 abbr -a pds "podman ps"
 abbr -a pdc "podman-compose"
+
+# Cancella fino al punto (bash-like)
+function backward-kill-bash-word --description 'Kill word stopping at . or /'
+    set -l old (commandline -t)  # testo a sinistra del cursore
+    set -l cut (string replace -r '[^.\/]+$' '' -- $old) # rimuove fino a separatore
+    set -l kill (string sub --start (math 1 + (string length -- $cut)) -- $old)
+    commandline -t $cut
+    set -U fish_clipboard $kill
+end
+
+# Cancella intera parola unix (senza fermarsi ai .)
+function backward-kill-unix-word --description 'Kill unix word ignoring .'
+    commandline -f backward-kill-word
+end
+
