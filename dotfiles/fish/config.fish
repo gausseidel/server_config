@@ -28,17 +28,16 @@ abbr -a update "cd $HOME/server_config; git pull; stow . --adopt --target=$HOME/
 abbr -a pds "podman ps"
 abbr -a pdc "podman-compose"
 
-# Cancella fino al punto (bash-like)
+# Funzione: cancella fino a separatore (., /)
 function backward-kill-bash-word --description 'Kill word stopping at . or /'
-    set -l old (commandline -t)  # testo a sinistra del cursore
-    set -l cut (string replace -r '[^.\/]+$' '' -- $old) # rimuove fino a separatore
-    set -l kill (string sub --start (math 1 + (string length -- $cut)) -- $old)
+    set -l left (commandline -t)          # testo a sinistra del cursore
+    set -l cut (string replace -r '[^.\/]+$' '' -- $left) # rimuove fino a separatore
+    set -l kill (string sub --start (math 1 + (string length -- $cut)) -- $left)
     commandline -t $cut
     set -U fish_clipboard $kill
 end
 
-# Cancella intera parola unix (senza fermarsi ai .)
+# Funzione: cancella parola "unix" intera
 function backward-kill-unix-word --description 'Kill unix word ignoring .'
     commandline -f backward-kill-word
 end
-
