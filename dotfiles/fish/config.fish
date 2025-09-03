@@ -19,25 +19,10 @@ end
 alias ls 'lsd -l --group-directories-first'
 alias la 'lsd -la --group-directories-first'
 abbr -a log "journalctl -xe"
-abbr -a v "/usr/local/bin/squashfs-root/AppRun"
+alias v "/usr/local/bin/squashfs-root/AppRun"
 alias grep "grep --color=auto"
 abbr -a s "systemctl"
 abbr -a st "systemctl status"
 abbr -a sr "systemctl restart"
 abbr -a update "cd $HOME/server_config; git pull; stow . --adopt --target=$HOME/.config"
-abbr -a pds "podman ps"
-abbr -a pdc "podman-compose"
 
-# Funzione: cancella fino a separatore (., /)
-function backward-kill-bash-word --description 'Kill word stopping at . or /'
-    set -l left (commandline -t)          # testo a sinistra del cursore
-    set -l cut (string replace -r '[^.\/]+$' '' -- $left) # rimuove fino a separatore
-    set -l kill (string sub --start (math 1 + (string length -- $cut)) -- $left)
-    commandline -t $cut
-    set -U fish_clipboard $kill
-end
-
-# Funzione: cancella parola "unix" intera
-function backward-kill-unix-word --description 'Kill unix word ignoring .'
-    commandline -f backward-kill-word
-end
