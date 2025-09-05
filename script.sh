@@ -5,7 +5,7 @@ REPO_DIR="$HOME/server_config"
 CONFIG_DIR="$HOME/.config"
 
 # Install packages
-apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc 
+apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc xclip
 
 # Update Locale - solo se necessario
 if ! locale -a | grep -q "it_IT.utf8\|it_IT.UTF-8"; then
