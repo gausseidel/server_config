@@ -5,7 +5,7 @@ REPO_DIR="$HOME/server_config"
 CONFIG_DIR="$HOME/.config"
 
 # Install packages
-apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc xclip
+apt install -y fish zoxide tmux stow htop curl lsd net-tools gcc xclip neovim
 
 # Update Locale - solo se necessario
 if ! locale -a | grep -q "it_IT.utf8\|it_IT.UTF-8"; then
@@ -36,22 +36,3 @@ else
   echo "✅ Starship è già installato"
 fi
 
-if [ ! -x /usr/local/bin/nvim ]; then
-    echo "Neovim non trovato. Procedo con l'installazione..."
-    wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
-    chmod +x nvim-linux-x86_64.appimage
-    mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
-
-    # Controlla se siamo in un container LXC
-    if cat /proc/1/environ | grep -q lxc; then
-        echo "Container LXC rilevato, eseguendo estrazione nvim..."
-        cd /usr/local/bin/
-        ./nvim --appimage-extract
-    else
-        echo "Non siamo in un container LXC, salto l'estrazione"
-    
-    fi
-    echo "Neovim installato in /usr/local/bin/nvim"
-else
-    echo "Neovim è già installato in /usr/local/bin/nvim"
-fi
