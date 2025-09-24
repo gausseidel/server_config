@@ -6,4 +6,3 @@ vim.g.transparent_enabled = 'true'
 -- o.cursorlineopt ='both' -- to enable cursorline!
 vim.opt.mouse = "a"
 
-set clipboard+=unnamedplus
