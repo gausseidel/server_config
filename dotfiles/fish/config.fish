@@ -19,7 +19,7 @@ end
 alias ls 'lsd -l --group-directories-first'
 alias la 'lsd -la --group-directories-first'
 abbr -a log "journalctl -xe"
-alias v "/usr/local/bin/squashfs-root/AppRun"
+alias v "nvim"
 alias grep "grep --color=auto"
 abbr -a s "systemctl"
 abbr -a st "systemctl status"
