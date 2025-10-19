@@ -8,7 +8,7 @@ function user
 
     if test -n "$utente"
         echo "Eseguo su - $utente"
-         su - $utente -c "tmux new-session -A -s user_session"
+         su - $utente
     else
         echo "Nessun utente trovato con shell bash, sh, fish o zsh diverso da root."
         return 1
@@ -26,3 +26,10 @@ abbr -a st "systemctl status"
 abbr -a sr "systemctl restart"
 abbr -a update "cd $HOME/server_config; git pull; stow . --adopt --target=$HOME/.config"
 
+# Avvia tmux automaticamente solo per utenti non-root
+if not set -q TMUX; and test (id -u) -ne 0
+    # Verifica che tmux sia disponibile
+    if command -v tmux > /dev/null
+        tmux new-session -A -s user_session
+    end
+end
