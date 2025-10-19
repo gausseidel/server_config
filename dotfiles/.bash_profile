@@ -3,10 +3,11 @@ if [ -f ~/.profile ]; then
     . ~/.profile
 fi
 
-# Avvia tmux PRIMA di passare a fish, se siamo via SSH
-if [[ -z "$TMUX" && -n "$SSH_TTY" ]]; then
-    exec tmux new-session -A -s ssh_tmux fish
+# Avvia tmux se non siamo già dentro (funziona anche con su -)
+if [[ -z "$TMUX" ]]; then
+    # Avvia tmux con fish come shell
+    exec tmux new-session -A -s user_session fish
 else
-    # Altrimenti passa normalmente a fish
+    # Se siamo già in tmux, passa solo a fish
     exec fish
 fi
