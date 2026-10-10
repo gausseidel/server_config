@@ -18,6 +18,7 @@ end
 
 alias ls 'lsd -l --group-directories-first'
 alias la 'lsd -la --group-directories-first'
+abbr dc "docker compose"
 abbr -a log "journalctl -xe"
 alias v "nvim"
 alias grep "grep --color=auto"
