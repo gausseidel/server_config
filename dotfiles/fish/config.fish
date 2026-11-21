@@ -27,3 +27,4 @@ abbr -a st "systemctl status"
 abbr -a sr "systemctl restart"
 abbr -a update "cd $HOME/server_config; git pull; stow . --adopt --target=$HOME/.config"
 
+bind \b backward-kill-word
