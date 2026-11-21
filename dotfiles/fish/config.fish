@@ -25,6 +25,5 @@ alias grep "grep --color=auto"
 abbr -a s "systemctl"
 abbr -a st "systemctl status"
 abbr -a sr "systemctl restart"
-abbr -a update "cd $HOME/server_config; git pull; stow . --adopt --target=$HOME/.config"
+abbr -a update "cd $HOME/.server_config; git pull; stow . --adopt --target=$HOME/.config"
 
-bind \cH backward-kill-word
